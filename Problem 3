@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class main {
+    public static void main(String[]args){
+         Scanner sc = new Scanner (System.in);
+         
+         
+         double Salary = sc.nextDouble();
+         double sales = sc.nextDouble();
+         double commission = sales * 0.15;
+         double totalpay = Salary + commission;
+         System.out.printf("Total pay : %.2f",totalpay);
+    }
+.
+}
