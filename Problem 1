@@ -1,0 +1,26 @@
+import java.util.Scanner;
+public class main {
+    public static void main(String[]args){
+        Scanner scanner = new Scanner( System.in);
+        double salary = scanner.nextDouble();
+        double bonuspercentage =0.0;
+        if (salary<=20000){
+            bonuspercentage=0.15;
+        }
+        else if (salary<=40000){
+            bonuspercentage =0.10;
+        }
+        else if(salary<=60000){
+            bonuspercentage =0.07;
+        }
+        else{
+            bonuspercentage =0.04;
+        }
+        double increase = salary*bonuspercentage;
+        double newsalary = salary+increase;
+        System.out.printf("new salary:%.2f\n",newsalary);
+        System.out.printf ("Increase:%.2f\n",increase);
+        scanner.close();
+    }
+   
+}
