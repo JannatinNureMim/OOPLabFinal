@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Main  {
+
+    
+    static class InvalidHoursException extends Exception {
+        InvalidHoursException(String message) {
+            super(message);
+        }
+    }
+
+ 
+    interface Payable {
+        double calculateSalary(int hoursWorked, double rate)
+                throws InvalidHoursException;
+    }
+
+    
+    static class RegularEmployee implements Payable {
+
+        @Override
+        public double calculateSalary(int hoursWorked, double rate)
+                throws InvalidHoursException {
+
+            if (hoursWorked < 0) {
+                throw new InvalidHoursException(
+                    "Hours worked cannot be negative"
+                );
+            }
+
+            return hoursWorked * rate;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        int hoursWorked = sc.nextInt();
+        double rate = sc.nextDouble();
+
+        RegularEmployee employee = new RegularEmployee();
+
+        try {
+            double salary = employee.calculateSalary(hoursWorked, rate);
+
+            System.out.printf("%.2f%n", salary);
+
+        } catch (InvalidHoursException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
+        sc.close();
